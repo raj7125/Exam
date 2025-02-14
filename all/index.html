@@ -1,0 +1,130 @@
+<!-- using cdn link -------------------->>
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+
+uinsg npm ------------------------->>
+
+1. npm init -y
+
+2. npm install -D tailwindcss postcss autoprefixer
+
+3. npx tailwindcss init -p
+
+4. 
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+5. package.json
+
+"scripts": {
+    "build": "tailwindcss -i ./styles.css -o ./dist/output.css --watch"
+}
+
+6. for build your project  ------>>>
+   npm run build
+
+   ------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+   1. Create vite app
+
+npm create vite@latest
+
+---------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Install TailWindCss with vite
+
+
+1. npm install tailwindcss @tailwindcss/vite
+
+2. 
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+
+3. 
+@import "tailwindcss";
+
+
+// ----------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Some examples of react + ts + tailwindcss
+
+import React from "react";
+
+type Props = {
+  name: string;
+};
+
+const Welcome: React.FC<Props> = ({ name }) => {
+  return <h1>Hello, {name}! Welcome to TypeScript + React.</h1>;
+};
+
+export default Welcome;
+
+
+import React, { useState } from "react";
+
+const Counter: React.FC = () => {
+  const [count, setCount] = useState<number>(0);
+
+  return (
+    <div>
+      <h2>Counter: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+export default Counter;
+
+
+ (for the input field)
+
+
+
+import React, { useState } from "react";
+
+const EventExample: React.FC = () => {
+  const [text, setText] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={text} onChange={handleChange} />
+      <p>You typed: {text}</p>
+    </div>
+  );
+};
+
+export default EventExample;
+
+
+
+
+const [items, setItems] = useState<string[]>([]);  // Array of strings
+const [numbers, setNumbers] = useState<number[]>([1, 2, 3]);
+
+type User = { id: number; name: string };
+const [users, setUsers] = useState<User[]>([
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+]);
+
+
+type User = {
+  name: string;
+  age: number;
+};
+
+const [user, setUser] = useState<User>({ name: "John", age: 25 }); 
